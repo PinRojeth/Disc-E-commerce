@@ -12,7 +12,7 @@ router
       const allPromotion = await Promotion.find();
 
       if (!allPromotion) {
-        throw new ErrorHandler("Promotion Item is not exist", "404");
+        throw new ErrorHandler("Promotion Item is not exist", 404);
       }
 
       res.status(200).json({
@@ -49,7 +49,7 @@ router
       const getPromoById = await Promotion.findById(req.params.promoId);
 
       if (!getPromoById) {
-        throw new ErrorHandler("This promotion doesn't exist", "404");
+        throw new ErrorHandler("This promotion doesn't exist", 404);
       }
 
       res.status(200).json({
@@ -67,7 +67,7 @@ router
       );
 
       if (!updatePromo) {
-        throw new ErrorHandler("This promoId is not exist", "404");
+        throw new ErrorHandler("This promoId is not exist", 404);
       }
 
       res.status(200).json({

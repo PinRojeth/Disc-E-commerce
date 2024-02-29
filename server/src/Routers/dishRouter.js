@@ -12,7 +12,7 @@ router
       const allDishes = await Dishes.find();
 
       if (!allDishes) {
-        throw new ErrorHandler("Disc is not exist", "404");
+        throw new ErrorHandler("Disc is not exist", 404);
       }
 
       res.status(200).json({
@@ -54,7 +54,7 @@ router
       const getOneDisc = await Dishes.findById(req.params.dishId);
 
       if (!getOneDisc) {
-        throw new ErrorHandler("This ID is not exist", "404");
+        throw new ErrorHandler("This ID is not exist", 404);
       }
 
       res.status(200).json({
@@ -73,7 +73,7 @@ router
 
       console.log(updateDisc);
       if (!updateDisc) {
-        throw new ErrorHandler("This ID is not exist", "404");
+        throw new ErrorHandler("This ID is not exist", 404);
       }
 
       res.status(200).json({
@@ -87,7 +87,7 @@ router
       const deleteDisc = await Dishes.findByIdAndDelete(req.params.dishId);
 
       if (!deleteDisc) {
-        throw new ErrorHandler("This ID is not exist", "404");
+        throw new ErrorHandler("This ID is not exist", 404);
       }
 
       res.status(200).json({
