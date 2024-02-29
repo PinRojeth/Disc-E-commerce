@@ -16,7 +16,7 @@ const dishesSchema = new mongoose.Schema(
     },
     price: {
       type: Number,
-      required: [true, "Must provide price for disc"],
+      require: [true, "Must provide price for disc"],
     },
     category: {
       type: String,
@@ -32,15 +32,11 @@ const dishesSchema = new mongoose.Schema(
     // This comment should change later after create user
     comments: [
       {
-        user: {
-          type: mongoose.Schema.Types.ObjectId,
-          require: true,
-          ref: "User",
-        },
-        comment: {
-          type: String,
-        },
+        rating: { type: Number, default: 1 },
+        comment: { type: String },
+        auther: { type: String },
       },
+      { timestamps: true },
     ],
   },
   {

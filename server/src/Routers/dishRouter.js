@@ -48,10 +48,10 @@ router
   );
 
 router
-  .route("/:dishesId")
+  .route("/:dishId")
   .get(
     CatchError(async (req, res, next) => {
-      const getOneDisc = await Dishes.findById(req.params.dishesId);
+      const getOneDisc = await Dishes.findById(req.params.dishId);
 
       if (!getOneDisc) {
         throw new ErrorHandler("This ID is not exist", "404");
@@ -66,7 +66,7 @@ router
   .patch(
     CatchError(async (req, res, next) => {
       const updateDisc = await Dishes.findByIdAndUpdate(
-        req.params.dishesId,
+        req.params.dishId,
         req.body,
         { new: true, runValidators: true }
       );
@@ -84,7 +84,7 @@ router
   )
   .delete(
     CatchError(async (req, res, next) => {
-      const deleteDisc = await Dishes.findByIdAndDelete(req.params.dishesId);
+      const deleteDisc = await Dishes.findByIdAndDelete(req.params.dishId);
 
       if (!deleteDisc) {
         throw new ErrorHandler("This ID is not exist", "404");
