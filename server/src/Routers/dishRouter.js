@@ -4,11 +4,12 @@ const router = express.Router();
 const CatchError = require("../Middlewares/CatchError");
 const ErrorHandler = require("../Utils/ErrorHandler");
 const Dishes = require("../Models/dishes");
+const authMiddleware = require('../Middlewares/authMiddleware')
 
 router
   .route("/")
   .get(
-    CatchError(async (req, res, next) => {
+    authMiddleware.protectedRoute, CatchError(async (req, res, next) => {
       const allDishes = await Dishes.find();
 
       if (!allDishes) {
