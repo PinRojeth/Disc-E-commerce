@@ -34,7 +34,7 @@ const dishesSchema = new mongoose.Schema(
       {
         rating: { type: Number, default: 1 },
         comment: { type: String },
-        auther: { type: String },
+        author: { type: String },
       },
       { timestamps: true },
     ],
@@ -43,7 +43,6 @@ const dishesSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-
 const Dishes = mongoose.model("Dishes", dishesSchema);
 
 module.exports = Dishes;

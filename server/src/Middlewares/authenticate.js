@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const { promisify } = require("util");
 const User = require("../Models/user");
 module.exports = {
-  protectedRoute: CatchError(async (req, res, next) => {
+  verifyOrdinaryUser: CatchError(async (req, res, next) => {
     // Check Authorization with token
     let token;
     if (
@@ -36,6 +36,26 @@ module.exports = {
     if (!freshUser) {
       throw new ErrorHandler(
         "The user belonging to this token does no longer exist."
+      );
+    }
+
+    // Check if user changed password after the token was issued
+    if (freshUser.changePasswordAfter(decoded.iat)) {
+      throw new ErrorHandler(
+        "User recently changed password! Please login again.",
+        401
+      );
+    }
+
+    // Grand Access to protected route
+    req.user = freshUser;
+    next();
+  }),
+
+  verifyAdmin: CatchError(async (req, res, next) => {
+    if (!req.user.admin) {
+      throw new ErrorHandler(
+        "You are not authorized to perform this operation!"
       );
     }
     next();

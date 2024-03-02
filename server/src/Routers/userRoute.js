@@ -14,16 +14,26 @@ const signToken = (id) => {
 
 router.route("/signup").post(
   CatchError(async (req, res, next) => {
-    const { username, email, password, confirmPassword } = req.body;
+    const {
+      username,
+      email,
+      password,
+      confirmPassword,
+      passwordChangedAt,
+      admin,
+    } = req.body;
 
     const user = new User({
       username,
       email,
       password,
       confirmPassword,
+      admin,
+      passwordChangedAt,
     });
 
     const newUser = await User.create(user);
+    console.log(newUser);
 
     const token = signToken(newUser._id);
 
