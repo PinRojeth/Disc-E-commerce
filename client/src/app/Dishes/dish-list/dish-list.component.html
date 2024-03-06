@@ -1,0 +1,19 @@
+<main class="item-list-container">
+  <mat-action-row>
+    <button mat-button color="primary" *ngIf="userIsAuthenticated">
+      Create Disc
+    </button>
+  </mat-action-row>
+  <mat-card class="item-card" *ngFor="let disc of dishes">
+    <img
+      mat-card-image
+      src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+      alt="Photo of a Shiba Inu"
+    />
+    <mat-card-content>
+      <mat-card-title>{{ disc.name }}</mat-card-title>
+      <p>{{ disc.description }}</p>
+      <h2 style="color: red; text-align: right">${{ disc.price }}</h2>
+    </mat-card-content>
+  </mat-card>
+</main>

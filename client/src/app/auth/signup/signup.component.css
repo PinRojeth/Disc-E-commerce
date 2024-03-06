@@ -1,0 +1,29 @@
+mat-card {
+  width: 80%;
+  margin: auto;
+  padding: 24px;
+  gap: 20px;
+}
+mat-form-field,
+input {
+  width: 100%;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Use the full height of the viewport */
+}
+mat-icon {
+  height: auto;
+  width: auto;
+  text-align: center;
+}
+.custom-icon {
+  font-size: 100px;
+}
