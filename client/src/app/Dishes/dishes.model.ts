@@ -2,10 +2,11 @@ export interface Comment {
   rating: number;
   comment: string;
   author: string;
-  timestamps?: Date;
+  createdAt: Date;
 }
 
 export interface Disc {
+  data: any;
   _id: string;
   name: string;
   image: string;

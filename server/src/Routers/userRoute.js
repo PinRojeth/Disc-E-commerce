@@ -56,15 +56,20 @@ router.route("/login").post(
 
     // To check if the email and password is correct
     const user = await User.findOne({ email }).select("+password");
-    const correct = await user.correctPassword(password, user.password);
 
-    if (!user || !correct) {
-      throw new ErrorHandler("Incorrect email or password", 401);
+    if (!user) {
+      throw new ErrorHandler("Incorrect email", 401);
     }
+    const correct = await user.correctPassword(password, user.password);
+    if (!correct) {
+      throw new ErrorHandler("Incorrect passowrd", 401);
+    }
+
     const token = signToken(user._id);
     res.status(200).json({
       status: "success",
       token,
+      expiresIn: process.env.JWT_EXPIRES_IN,
     });
   })
 );

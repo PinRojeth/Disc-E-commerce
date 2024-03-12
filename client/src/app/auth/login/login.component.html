@@ -5,14 +5,19 @@
       fontIcon="account_box"
       class="custom-icon"
     ></mat-icon>
-
-    <form (submit)="onLogin(loginForm)" #loginForm="ngForm" *ngIf="!isLoading">
+    <div *ngIf="error" class="error-block">
+      <p class="error-message">
+        Invalid email or password. Please check your credentials and try again.
+      </p>
+    </div>
+    <mat-spinner *ngIf="isLoading" class="loading-spin"></mat-spinner>
+    <form (submit)="onLogin(loginForm)" *ngIf="!isLoading" #loginForm="ngForm">
       <mat-form-field>
         <mat-label>Email</mat-label>
         <input
           matInput
           name="email"
-          type="text"
+          type="email"
           placeholder="example@gmail.com"
           ngModel
           #emailInput="ngModel"
@@ -38,10 +43,23 @@
           >Please enter a valid password.</mat-error
         >
       </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">Login</button>
-      <button mat-raised-button color="green" (click)="onSignUp()">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        *ngIf="!isLoading"
+      >
+        Login
+      </button>
+      <button
+        mat-raised-button
+        color="green"
+        *ngIf="!isLoading"
+        (click)="onSignUp()"
+      >
         Sign Up
       </button>
     </form>
   </mat-card>
 </div>
+

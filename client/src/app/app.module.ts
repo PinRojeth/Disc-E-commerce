@@ -18,8 +18,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { DishesListComponent } from './Dishes/dish-list/dish-list.component';
+import { DishDetailComponent } from './Dishes/dish-detail/dish-detail.component';
+import { CommentCreateComponent } from './Dishes/comment-create/comment-create.component';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
@@ -29,6 +32,8 @@ import { HeaderComponent } from './header/header.component';
     LoginComponent,
     SignUpComponent,
     DishesListComponent,
+    DishDetailComponent,
+    CommentCreateComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -42,6 +47,7 @@ import { HeaderComponent } from './header/header.component';
     MatToolbarModule,
     MatExpansionModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
     HttpClientModule,
   ],
   providers: [

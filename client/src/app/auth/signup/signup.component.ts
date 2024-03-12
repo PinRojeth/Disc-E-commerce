@@ -9,17 +9,31 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent {
   isLoading = false;
+  error: string = null;
   constructor(public authService: AuthService, private router: Router) {}
 
   onSignUp(form: NgForm) {
     if (form.valid) {
-      this.authService.signupUser(
-        form.value.username,
-        form.value.email,
-        form.value.password,
-        form.value.confirmPassword
-      );
-      this.router.navigate(['/login'])
+      this.isLoading = true;
+
+      this.authService
+        .signupUser(
+          form.value.username,
+          form.value.email,
+          form.value.password,
+          form.value.confirmPassword
+        )
+        .subscribe(
+          () => {
+            this.isLoading = false;
+            this.router.navigate(['/login']);
+          },
+          (errorResponse) => {
+            this.isLoading = false;
+            this.error = errorResponse.error.error;
+            console.log(errorResponse.error.error);
+          }
+        );
     }
   }
 }

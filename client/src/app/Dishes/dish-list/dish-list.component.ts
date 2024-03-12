@@ -12,7 +12,7 @@ export class DishesListComponent implements OnInit, OnDestroy {
   dishes: Disc[] = [];
   private authStatusSub: Subscription;
   public userIsAuthenticated = false;
-  public openDialog = false;
+  private dishesSub: Subscription;
   constructor(
     private dishService: DishService,
     private authService: AuthService

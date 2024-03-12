@@ -9,19 +9,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  constructor(private authService: AuthService, private router: Router) {}
   userIsAuthenticated = false;
   private authListenerSubs: Subscription;
+  constructor(private authService: AuthService, private router: Router) {}
   ngOnInit() {
+    this.userIsAuthenticated = this.authService.getIsAuth();
     this.authListenerSubs = this.authService
       .getAuthStatusListener()
-      .subscribe((isAuthticated) => {
-        this.userIsAuthenticated = isAuthticated;
+      .subscribe((isAuthenticated) => {
+        this.userIsAuthenticated = isAuthenticated;
       });
   }
   onLogOut() {
     this.authService.logout();
-    this.router.navigate(['/login'])
   }
   ngOnDestroy(): void {
     this.authListenerSubs.unsubscribe();

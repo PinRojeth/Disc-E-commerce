@@ -27,3 +27,24 @@ mat-icon {
 .custom-icon {
   font-size: 100px;
 }
+.error-block {
+  display: flex;
+  background-color: rgba(255, 0, 0, 0.818);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 7px;
+  height: auto;
+  padding: 5px;
+}
+
+.error-message {
+  font-size: 11px;
+  color: white;
+  text-align: center;
+  margin: 0px;
+}
+
+mat-spinner {
+  margin-left: 75px;
+}
