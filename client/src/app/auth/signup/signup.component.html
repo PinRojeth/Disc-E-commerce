@@ -1,0 +1,81 @@
+<div class="container">
+  <mat-card>
+    <mat-icon
+      color="primary"
+      fontIcon="account_box"
+      class="custom-icon"
+    ></mat-icon>
+    <div *ngIf="error" class="error-block">
+      <p class="error-message">{{ error }}</p>
+    </div>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <form
+      (submit)="onSignUp(signupForm)"
+      #signupForm="ngForm"
+      *ngIf="!isLoading"
+    >
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input
+          matInput
+          name="username"
+          type="text"
+          placeholder="your name"
+          ngModel
+          #usernameInput="ngModel"
+          required
+        />
+        <mat-error *ngIf="usernameInput.invalid"
+          >Please enter a valid username.</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          name="email"
+          type="text"
+          placeholder="example@gmail.com"
+          ngModel
+          #emailInput="ngModel"
+          required
+          email
+        />
+        <mat-error *ngIf="emailInput.invalid"
+          >Please enter a valid email.</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          name="password"
+          ngModel
+          type="password"
+          placeholder="Password"
+          #passwordInput="ngModel"
+          required
+        />
+        <mat-error *ngIf="passwordInput.invalid"
+          >Please enter a valid password.</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Confirm Password</mat-label>
+        <input
+          matInput
+          name="confirmPassword"
+          ngModel
+          type="password"
+          placeholder="ConfirmPassword"
+          #confirmPasswordInput="ngModel"
+          required
+        />
+        <mat-error *ngIf="confirmPasswordInput.invalid"
+          >Please enter a valid password.</mat-error
+        >
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Sign Up</button>
+    </form>
+  </mat-card>
+</div>

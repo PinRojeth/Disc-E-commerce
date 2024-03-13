@@ -1,0 +1,66 @@
+<div>
+  <form [formGroup]="newDishForm" (ngSubmit)="createDish()" class="form-create">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        name="name"
+        type="text"
+        formControlName="name"
+        placeholder="Product Name"
+        required
+      />
+      <mat-error *ngIf="newDishForm.get('name').invalid"
+        >Please enter a valid name.</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input
+        matInput
+        name="description"
+        type="text"
+        formControlName="description"
+        placeholder="Description"
+        required
+      />
+      <mat-error *ngIf="newDishForm.get('description').invalid"
+        >Product must have a description.</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <input
+        matInput
+        name="price"
+        type="number"
+        formControlName="price"
+        placeholder="Price"
+        required
+      />
+      <mat-error *ngIf="newDishForm.get('price').invalid"
+        >Please enter a valid price.</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <input
+        matInput
+        name="category"
+        type="text"
+        formControlName="category"
+        placeholder="Category"
+        required
+      />
+      <mat-error *ngIf="newDishForm.get('category').invalid"
+        >Please enter a valid category.</mat-error
+      >
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">
+      Create Product
+    </button>
+  </form>
+</div>

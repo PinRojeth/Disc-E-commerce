@@ -1,0 +1,42 @@
+.item-card {
+  width: 150px;
+  height: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+}
+
+.item-container {
+  display: flex;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 15px;
+}
+
+.item-list-container {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+.btn-action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+mat-card-title {
+  width: 118px;
+}
+p {
+  width: 118;
+}
+
+.btn-create {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 40px;
+  padding-right: 25px;
+  padding-left: 25px;
+}

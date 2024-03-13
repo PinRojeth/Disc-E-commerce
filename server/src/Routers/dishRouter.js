@@ -8,7 +8,7 @@ const authentication = require("../Middlewares/authenticate");
 router
   .route("/")
   .get(
-    authentication.verifyOrdinaryUser,
+    // authentication.verifyOrdinaryUser,
     CatchError(async (req, res, next) => {
       const allDishes = await Dishes.find();
 
@@ -18,7 +18,7 @@ router
 
       res.status(200).json({
         status: "success",
-        data: { Dishes: allDishes },
+        data: allDishes,
       });
     })
   )

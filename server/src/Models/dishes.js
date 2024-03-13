@@ -1,5 +1,14 @@
 const mongoose = require("mongoose");
 
+const commentSchema = new mongoose.Schema(
+  {
+    rating: { type: Number, default: 1, min: 1, max: 5 },
+    comment: { type: String },
+    author: { type: String },
+  },
+  { timestamps: true }
+);
+
 const dishesSchema = new mongoose.Schema(
   {
     name: {
@@ -29,15 +38,7 @@ const dishesSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    // This comment should change later after create user
-    comments: [
-      {
-        rating: { type: Number, default: 1 },
-        comment: { type: String },
-        author: { type: String },
-      },
-      { timestamps: true },
-    ],
+    comments: [commentSchema],
   },
   {
     timestamps: true,

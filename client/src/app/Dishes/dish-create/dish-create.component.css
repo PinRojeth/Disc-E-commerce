@@ -1,0 +1,15 @@
+.form-create {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+
+.btn-pickImage{
+    margin-top: 10px;
+    margin-bottom: 15px;
+
+}
+
+input[type="file"]{
+    visibility: hidden;
+}

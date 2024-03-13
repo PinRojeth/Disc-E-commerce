@@ -1,0 +1,65 @@
+<div class="container">
+  <mat-card>
+    <mat-icon
+      color="primary"
+      fontIcon="account_box"
+      class="custom-icon"
+    ></mat-icon>
+    <div *ngIf="error" class="error-block">
+      <p class="error-message">
+        Invalid email or password. Please check your credentials and try again.
+      </p>
+    </div>
+    <mat-spinner *ngIf="isLoading" class="loading-spin"></mat-spinner>
+    <form (submit)="onLogin(loginForm)" *ngIf="!isLoading" #loginForm="ngForm">
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          name="email"
+          type="email"
+          placeholder="example@gmail.com"
+          ngModel
+          #emailInput="ngModel"
+          required
+          email
+        />
+        <mat-error *ngIf="emailInput.invalid"
+          >Please enter a valid email.</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          name="password"
+          ngModel
+          type="password"
+          placeholder="Password"
+          #passwordInput="ngModel"
+          required
+        />
+        <mat-error *ngIf="passwordInput.invalid"
+          >Please enter a valid password.</mat-error
+        >
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        *ngIf="!isLoading"
+      >
+        Login
+      </button>
+      <button
+        mat-raised-button
+        color="green"
+        *ngIf="!isLoading"
+        (click)="onSignUp()"
+      >
+        Sign Up
+      </button>
+    </form>
+  </mat-card>
+</div>
+
