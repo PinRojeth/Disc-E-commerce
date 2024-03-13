@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private baseUrl = 'http://localhost:3000/users';
+  private baseUrl = 'https://disc-e-commerce.onrender.com/users';
 
   private token: string;
   private tokenTimer: any;

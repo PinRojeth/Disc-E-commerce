@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class DishService {
-  private baseUrl: string = 'http://localhost:3000/dishes';
+  private baseUrl: string = 'https://disc-e-commerce.onrender.com/dishes';
   private dishes: Disc[] = [];
 
   constructor(private http: HttpClient) {}
