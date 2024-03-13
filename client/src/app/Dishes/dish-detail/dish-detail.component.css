@@ -1,0 +1,87 @@
+img {
+  height: 300px;
+}
+
+h2 {
+  margin: 0px;
+}
+
+mat-card {
+  padding: 15px;
+}
+
+hr {
+  margin-top: 11px;
+}
+p {
+  margin: 0px;
+}
+
+.label-name {
+  color: black;
+}
+.label-description {
+  color: black;
+}
+.description {
+  color: black;
+}
+
+.comment-label {
+  margin-top: 20px;
+  color: black;
+}
+
+.dish-detail-container {
+  padding: 25px;
+}
+
+.price-tag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-size: 24px;
+}
+
+.comment-header {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rating-block {
+  color: red;
+  display: flex;
+  align-items: center;
+  width: 38px;
+  justify-content: space-between;
+}
+
+.rating {
+  font-size: 20px;
+  margin: 0px;
+}
+
+mat-icon {
+  color: rgba(255, 217, 0, 0.866);
+}
+
+.comment-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+  color: black;
+}
+
+.timestamps {
+  font-size: 12px;
+}
+
+.comment-detail {
+  margin-top: 20px;
+}

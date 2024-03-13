@@ -1,0 +1,40 @@
+<img
+  src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+  alt="Photo of a Shiba Inu"
+/>
+<div class="dish-detail-container" style="color: red">
+  <h1 class="label-name">{{ dish?.name }}</h1>
+
+  <div>
+    <h2 class="label-description">Description:</h2>
+    <p class="description">{{ dish?.description }}</p>
+  </div>
+<hr class="top">
+  <div class="price-tag">
+    <h2>Price:</h2>
+    <p class="price">${{ dish?.price }}</p>
+  </div>
+  <hr class="bottom">
+
+  <h1 class="comment-label">Comments</h1>
+
+  <div class="comment-section">
+    <mat-card *ngFor="let comment of dish?.comments">
+      <div class="comment-header">
+        <h2>{{ comment?.author }}</h2>
+        <div class="rating-block">
+          <h3 class="rating">{{ comment?.rating }}</h3>
+          <mat-icon fontIcon="grade"></mat-icon>
+        </div>
+      </div>
+      <p class="timestamps">{{ comment.createdAt | date : "medium" }}</p>
+
+      <p class="comment-detail">{{ comment?.comment }}</p>
+    </mat-card>
+  </div>
+
+  <div>
+    
+  </div>
+
+</div>
