@@ -11,12 +11,16 @@ export class AuthService {
   private token: string;
   private tokenTimer: any;
   private authStatusListener = new Subject<boolean>();
-
+  private isAdmin: boolean;
   private isAuthenticated = false;
   constructor(private http: HttpClient, private router: Router) {}
 
   getToken() {
     return this.token;
+  }
+
+  getRole() {
+    return this.isAdmin;
   }
 
   getIsAuth() {
@@ -51,7 +55,7 @@ export class AuthService {
       password: password,
     };
     this.http
-      .post<{ token: string; expiresIn: number }>(
+      .post<{ token: string; expiresIn: number; admin: boolean }>(
         `${this.baseUrl}/login`,
         loginData
       )
@@ -66,6 +70,8 @@ export class AuthService {
       .subscribe((res) => {
         const token = res.token;
         this.token = token;
+        const admin = res.admin;
+        this.isAdmin = admin;
         if (token) {
           const expiresInDuration = res.expiresIn;
           console.log(expiresInDuration);

@@ -23,3 +23,15 @@ export interface DishesData {
   status: string;
   data: Disc[];
 }
+
+// export interface CreateDishData {
+//   data: any;
+//   name: string;
+//   image: string;
+//   description: string;
+//   price: number;
+//   category: string;
+//   feature: boolean;
+//   label: string;
+//   timestamps: Date;
+// }

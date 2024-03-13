@@ -9,12 +9,18 @@ import { DishDetailComponent } from './Dishes/dish-detail/dish-detail.component'
 
 import { AuthGuard } from './auth/auth.guard';
 import { CommentCreateComponent } from './Dishes/comment-create/comment-create.component';
+import { CreateDishComponent } from './Dishes/dish-create/dish-create.component';
 
 const routes: Routes = [
   { path: '', component: DishesListComponent },
   {
     path: 'dishes',
     component: DishesListComponent,
+  },
+  {
+    path: 'dishes/create',
+    component: CreateDishComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'dishes/:dishid',

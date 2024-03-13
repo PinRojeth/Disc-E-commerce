@@ -1,26 +1,29 @@
 <main class="item-list-container">
-  <mat-action-row>
-    <button mat-button color="primary" *ngIf="userIsAuthenticated">
-      Create Disc
+  <div class="btn-create">
+    <button mat-raised-button color="primary" (click)="onCreate()">
+      Create Dish
     </button>
-  </mat-action-row>
-  <mat-card
-    class="item-card"
-    *ngFor="let disc of dishes"
-    [routerLink]="['/dishes', disc?._id]"
-  >
-    <img
-      mat-card-image
-      src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-      alt="Photo of a Shiba Inu"
-    />
-    <mat-card-content>
-      <mat-card-title>{{ disc.name }}</mat-card-title>
-      <p>{{ disc.description }}</p>
-      <h2 style="color: red; text-align: right">${{ disc.price }}</h2>
-    </mat-card-content>
-  </mat-card>
+  </div>
+  <div class="item-container">
+    <mat-card
+      class="item-card"
+      *ngFor="let disc of dishes"
+      [routerLink]="['/dishes', disc?._id]"
+    >
+      <img
+        mat-card-image
+        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+        alt="Photo of a Shiba Inu"
+      />
+      <mat-card-content>
+        <mat-card-title>{{ disc.name }}</mat-card-title>
+        <p>{{ disc.description }}</p>
+        <h2 style="color: red; text-align: right">${{ disc.price }}</h2>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
   <div *ngIf="">
-    <router-outlet></router-outlet>
+    <!-- <router-outlet></router-outlet> -->
   </div>
 </main>

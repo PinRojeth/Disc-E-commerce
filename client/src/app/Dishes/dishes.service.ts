@@ -12,7 +12,7 @@ export class DishService {
 
   constructor(private http: HttpClient) {}
 
-  getAllDishes(): Observable<DishesData> {    
+  getAllDishes(): Observable<DishesData> {
     return this.http.get<DishesData>(this.baseUrl);
   }
 
@@ -20,7 +20,7 @@ export class DishService {
     return this.http.get<Disc>(`${this.baseUrl}/${id}`);
   }
 
-  // createDish(dishData: DishesData): Observable<DishesData> {
-  //   return this.http.post<DishesData>(`${this.baseUrl}/`, dishData);
-  // }
+  createDish(dishData: Disc): Observable<Disc> {
+    return this.http.post<Disc>(`${this.baseUrl}`, dishData);
+  }
 }

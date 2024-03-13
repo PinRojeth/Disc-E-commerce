@@ -1,77 +1,66 @@
-<!-- <div class="container">
-  <mat-card>
-    <mat-icon
-      color="primary"
-      fontIcon="account_box"
-      class="custom-icon"
-    ></mat-icon>
-    <form
-      (submit)="onSignUp(signupForm)"
-      #signupForm="ngForm"
-      *ngIf="!isLoading"
-    >
-      <mat-form-field>
-        <mat-label>Username</mat-label>
-        <input
-          matInput
-          name="username"
-          type="text"
-          placeholder="your name"
-          ngModel
-          #usernameInput="ngModel"
-          required
-        />
-        <mat-error *ngIf="usernameInput.invalid"
-          >Please enter a valid username.</mat-error
-        >
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input
-          matInput
-          name="email"
-          type="text"
-          placeholder="example@gmail.com"
-          ngModel
-          #emailInput="ngModel"
-          required
-          email
-        />
-        <mat-error *ngIf="emailInput.invalid"
-          >Please enter a valid email.</mat-error
-        >
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input
-          matInput
-          name="password"
-          ngModel
-          type="password"
-          placeholder="Password"
-          #passwordInput="ngModel"
-          required
-        />
-        <mat-error *ngIf="passwordInput.invalid"
-          >Please enter a valid password.</mat-error
-        >
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Confirm Password</mat-label>
-        <input
-          matInput
-          name="confirmPassword"
-          ngModel
-          type="password"
-          placeholder="Password"
-          #confirmPasswordInput="ngModel"
-          required
-        />
-        <mat-error *ngIf="confirmPasswordInput.invalid"
-          >Please enter a valid password.</mat-error
-        >
-      </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">Sign Up</button>
-    </form>
-  </mat-card>
-</div> -->
+<div>
+  <form [formGroup]="newDishForm" (ngSubmit)="createDish()" class="form-create">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        name="name"
+        type="text"
+        formControlName="name"
+        placeholder="Product Name"
+        required
+      />
+      <mat-error *ngIf="newDishForm.get('name').invalid"
+        >Please enter a valid name.</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input
+        matInput
+        name="description"
+        type="text"
+        formControlName="description"
+        placeholder="Description"
+        required
+      />
+      <mat-error *ngIf="newDishForm.get('description').invalid"
+        >Product must have a description.</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <input
+        matInput
+        name="price"
+        type="number"
+        formControlName="price"
+        placeholder="Price"
+        required
+      />
+      <mat-error *ngIf="newDishForm.get('price').invalid"
+        >Please enter a valid price.</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <input
+        matInput
+        name="category"
+        type="text"
+        formControlName="category"
+        placeholder="Category"
+        required
+      />
+      <mat-error *ngIf="newDishForm.get('category').invalid"
+        >Please enter a valid category.</mat-error
+      >
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">
+      Create Product
+    </button>
+  </form>
+</div>

@@ -48,7 +48,7 @@ router.route("/signup").post(
 router.route("/login").post(
   CatchError(async (req, res, next) => {
     const { email, password } = req.body;
-
+    console.log(req.body);
     // To check if email and password is exist
     if (!email || !password) {
       throw new ErrorHandler("Please provide email and Passowrd", 404);
@@ -56,7 +56,6 @@ router.route("/login").post(
 
     // To check if the email and password is correct
     const user = await User.findOne({ email }).select("+password");
-
     if (!user) {
       throw new ErrorHandler("Incorrect email", 401);
     }
@@ -70,6 +69,7 @@ router.route("/login").post(
       status: "success",
       token,
       expiresIn: process.env.JWT_EXPIRES_IN,
+      admin: user?.admin,
     });
   })
 );
